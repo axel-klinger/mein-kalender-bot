@@ -75,3 +75,5 @@ Jede eigentliche Beantwortung eines Anliegens, durch Logik oder Abfrage aus dem 
 ### Geschichten erzählen - Definition der Stories
 
 In den Stories werden die Elemente des Dialogs beispielhaft miteinander verbunden. Durch interaktives Training lernt der Bot richtig zu reagieren.
+
+Zunächst werden nur einfache Reaktionen formuliert, ohne Bezug auf Objekte im Kontext.
