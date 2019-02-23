@@ -1,5 +1,9 @@
 # Mein Kalender Bot
 
+Das Ziel ist ein Chatbot, der mir Auskunft über Ferienzeiten, Müllabfuhrtermine und andere Ereignisse liefert.
+
+Auf Basis dieses [Youtube Videos](https://www.youtube.com/watch?v=xu6D_vLP5vY&t=3848s)
+
 ## Voraussetzung
 
 * Python 3
@@ -10,7 +14,7 @@
 ## Verstehen was der Anwender will - Trainieren des Modells
 Anhand von Beispielsätzen lernt der Bot was der Anwender will und wovon er redet. Durch das Training kann der Bot auch bei abweichenden Formulierungen oder Rechtschreibfehlern die richtige Intention erkennen und auch neue Begriffe richtig einordnen ohne dass jede mögliche Abweichung explizit angegeben wird.   
 
-1. data/data.json anlegen und mit rasa-nlu-trainer befüllen
+1. [data/data.json](data/data.json) anlegen und mit rasa-nlu-trainer befüllen
 
 ```
 Die Trainingdaten
@@ -18,7 +22,7 @@ Die Trainingdaten
 * klassifizieren einzelne Begriffe in den Sätzen
 ```
 
-2. config.json erstellen
+2. [config.json](config.json) erstellen
 
 ```
 Die Konfiguration
@@ -27,7 +31,7 @@ Die Konfiguration
 * definiert einen Ordner für die Ausgabe des Modells
 ```
 
-3. Skript kalender-training.py erstellen und ausführen -> erzeugt das Modell im Ordner models (die Modelle werden nicht versioniert)
+3. Skript [kalender-training.py](kalender-training.py) erstellen und ausführen -> erzeugt das Modell im Ordner models (die Modelle werden nicht versioniert)
 
 ```
 Der Trainer
@@ -35,7 +39,7 @@ Der Trainer
 * generiert und speichert ein Modell
 ```
 
-4. Skript kalender-training-test.py anlegen und ausführen -> hier wird die Intention der Aussage (intent) anhand eines statischen Beispiels getestet. Das Beispiel verwendet sowohl einen anderen Satzbau, als auch einen unbekannten Ferienbegriff und Intention und Objekt werden dennoch richtig erkannt.
+4. Skript [kalender-training-test.py](kalender-training-test.py) anlegen und ausführen -> hier wird die Intention der Aussage (intent) anhand eines statischen Beispiels getestet. Das Beispiel verwendet sowohl einen anderen Satzbau, als auch einen unbekannten Ferienbegriff und Intention und Objekt werden dennoch richtig erkannt.
 
 ```
 Der Interpreter
@@ -45,6 +49,8 @@ Der Interpreter
 ## Richtig reagieren - Dialog Management
 
 Je nach Eingabe soll der Bot nach weiteren Details fragen oder antworten. Die Gesprächsführung kann in einem Flowchart skizziert werden.
+
+5. [kalender-domain.yml](kalender-domain.yml) erstellen
 
 ### Definition der Domäne
 
@@ -72,8 +78,20 @@ Jedes Template wird durch eine Aktion aktiviert.
 
 Jede eigentliche Beantwortung eines Anliegens, durch Logik oder Abfrage aus dem Web, wird in einer *custom action* als separates Python Skript formuliert.
 
+7. [kalender-actions.py](kalender-actions.py) erstellen
+
 ### Geschichten erzählen - Definition der Stories
 
 In den Stories werden die Elemente des Dialogs beispielhaft miteinander verbunden. Durch interaktives Training lernt der Bot richtig zu reagieren.
 
 Zunächst werden nur einfache Reaktionen formuliert, ohne Bezug auf Objekte im Kontext.
+
+7. [data/stories.md](data/stories.md) erstellen
+
+### Ein Basis-Dialogmodell trainieren
+
+Auf der Basis von *stories* und *domain* werden Fake-Sätze erstellt.
+
+8. kalender-dialog-training.py
+
+9. kalender-dialog-online-training.py
