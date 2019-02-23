@@ -48,7 +48,7 @@ Der Interpreter
 ```
 ## Richtig reagieren - Dialog Management
 
-Je nach Eingabe soll der Bot nach weiteren Details fragen oder antworten. Die Gesprächsführung kann in einem Flowchart skizziert werden.
+Je nach Eingabe soll der Bot nach weiteren Details fragen oder antworten.
 
 5. [kalender-domain.yml](kalender-domain.yml) erstellen
 
@@ -84,6 +84,8 @@ Jede eigentliche Beantwortung eines Anliegens, durch Logik oder Abfrage aus dem 
 
 In den Stories werden die Elemente des Dialogs beispielhaft miteinander verbunden. Durch interaktives Training lernt der Bot richtig zu reagieren.
 
+Die Stories beschreiben mögliche Wege in einem FlowChart für den Dialog.
+
 Zunächst werden nur einfache Reaktionen formuliert, ohne Bezug auf Objekte im Kontext.
 
 7. [data/stories.md](data/stories.md) erstellen
@@ -92,6 +94,28 @@ Zunächst werden nur einfache Reaktionen formuliert, ohne Bezug auf Objekte im K
 
 Auf der Basis von *stories* und *domain* werden Fake-Sätze erstellt.
 
-8. kalender-dialog-training.py
+### TODO
 
-9. kalender-dialog-online-training.py
+Initiales Training des Dialogs
+
+8. [kalender-dialog-training.py](kalender-dialog-training.py)
+
+Interaktives Training - generiert Stories, die dann an die ursprünglichen Stories angehängt werden.
+
+9. [kalender-dialog-online-training.py](kalender-dialog-online-training.py)
+
+Finales Training ...
+
+10. [kalender-dialog-final-training.py](kalender-dialog-final-training.py)
+
+... und Test des Bots
+
+11. [kalender-bot.py](kalender-bot.py)
+
+### Die Anwendungen
+
+... mit Bot als (Flask?) Server ...
+
+* vom Smartphone via Sprachein/ausgabe
+* in Facebook im Messanger
+* im Web als iframe
