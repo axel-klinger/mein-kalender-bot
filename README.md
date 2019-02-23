@@ -35,7 +35,7 @@ Der Trainer
 * generiert und speichert ein Modell
 ```
 
-4. Skript kalender-training-test.py anlegen und ausführen -> hier wird die Intention der Aussage (intent) anhand eines statischen Beispiels getestet.
+4. Skript kalender-training-test.py anlegen und ausführen -> hier wird die Intention der Aussage (intent) anhand eines statischen Beispiels getestet. Das Beispiel verwendet sowohl einen anderen Satzbau, als auch einen unbekannten Ferienbegriff und Intention und Objekt werden dennoch richtig erkannt.
 
 ```
 Der Interpreter
