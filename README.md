@@ -45,3 +45,33 @@ Der Interpreter
 ## Richtig reagieren - Dialog Management
 
 Je nach Eingabe soll der Bot nach weiteren Details fragen oder antworten. Die Gesprächsführung kann in einem Flowchart skizziert werden.
+
+### Definition der Domäne
+
+**slots - Platzhalter im Kontext für Objekte und ihre Datentypen**
+
+Slots halten Objekte (entities) im Kontext fest. Wenn ich beispielsweise sage, "Ich habe einen Hund" und "er ist schwarz", dann steht im Kontext, dass wir von (m)einem Hund reden, und im zweiten Satz beziehen wir uns auf den Hund mit "er".
+
+**intents - Intentionen oder was der Anwender will**
+
+Die Intention sagt, was ich von dem Bot will, ohne das *wie ich es formuliert habe*.
+
+Die Intents entsprechen denen aus data/data.json.
+
+**entities - Objekte über die wir reden**
+
+Die Entitäten sind die Objekte oder Begriffe über die wir reden.
+
+**templates - Vorlagen für die Ausgabe**
+
+Mögliche Formen der Antworten auf bestimmte Eingaben (Intentionen). *Antworten und Nachfragen zu Details.* Alternative Antworten, damit es natürlicher wirkt.
+
+**actions - Triggern von Templates und Logik**
+
+Jedes Template wird durch eine Aktion aktiviert.
+
+Jede eigentliche Beantwortung eines Anliegens, durch Logik oder Abfrage aus dem Web, wird in einer *custom action* als separates Python Skript formuliert.
+
+### Geschichten erzählen - Definition der Stories
+
+In den Stories werden die Elemente des Dialogs beispielhaft miteinander verbunden. Durch interaktives Training lernt der Bot richtig zu reagieren.

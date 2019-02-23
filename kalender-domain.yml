@@ -1,0 +1,29 @@
+slots:
+  holidays:
+    type: text
+
+intents:
+  - greeting
+  - goodby
+  - get_holidays
+
+entities:
+  - holidays
+
+templates:
+  utter_greet:
+    - "Hi!"
+    - "Hallo."
+    - "Hallo du!"
+  utter_goodby:
+    - "Und tschüss"
+    - "Bis bald"
+  utter_ask_for_holidays:
+    - "Welche Ferien"
+    - "Von welchen Ferien sprichts du?"
+
+actions:
+  - utter_greet
+  - utter_goodby
+  - utter_ask_for_holidays
+  - kalender-actions.KalenderInfo
