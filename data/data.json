@@ -1,0 +1,132 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "Hallo",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "Hi",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "Wann sind die Osterferien",
+        "intent": "get_holidays",
+        "entities": [
+          {
+            "start": 14,
+            "end": 25,
+            "value": "Osterferien",
+            "entity": "ferien"
+          }
+        ]
+      },
+      {
+        "text": "Kannst du mir sagen wann die Sommerferien sind?",
+        "intent": "get_holidays",
+        "entities": [
+          {
+            "start": 29,
+            "end": 41,
+            "value": "Sommerferien",
+            "entity": "ferien"
+          }
+        ]
+      },
+      {
+        "text": "Wie liegen die Herbstferien",
+        "intent": "get_holidays",
+        "entities": [
+          {
+            "start": 15,
+            "end": 27,
+            "value": "Herbstferien",
+            "entity": "ferien"
+          }
+        ]
+      },
+      {
+        "text": "Tschüss",
+        "intent": "goodbye",
+        "entities": []
+      },
+      {
+        "text": "Ciao",
+        "intent": "goodbye",
+        "entities": []
+      },
+      {
+        "text": "Und tschüss",
+        "intent": "goodbye",
+        "entities": []
+      },
+      {
+        "text": "Hey du",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "Wann wird der Müll abgeholt",
+        "intent": "get_garbage_collection",
+        "entities": []
+      },
+      {
+        "text": "Wann ist Altpapier",
+        "intent": "get_garbage_collection",
+        "entities": [
+          {
+            "start": 9,
+            "end": 18,
+            "value": "Altpapier",
+            "entity": "muell"
+          }
+        ]
+      },
+      {
+        "text": "Wann wird der Biomüll abgeholt",
+        "intent": "get_garbage_collection",
+        "entities": [
+          {
+            "start": 14,
+            "end": 21,
+            "value": "Biomüll",
+            "entity": "muell"
+          }
+        ]
+      },
+      {
+        "text": "Wann kommt das nächste Mal die Müllabfuhr ",
+        "intent": "get_garbage_collection",
+        "entities": []
+      },
+      {
+        "text": "Wann haben wir Winterferien",
+        "intent": "get_holidays",
+        "entities": [
+          {
+            "start": 15,
+            "end": 27,
+            "value": "Winterferien",
+            "entity": "ferien"
+          }
+        ]
+      },
+      {
+        "text": "Wann wird die Grüne Tonne abgeholt",
+        "intent": "get_garbage_collection",
+        "entities": [
+          {
+            "start": 14,
+            "end": 25,
+            "value": "Grüne Tonne",
+            "entity": "muell"
+          }
+        ]
+      }
+    ],
+    "regex_features": [],
+    "entity_synonyms": []
+  }
+}
