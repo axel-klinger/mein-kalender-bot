@@ -99,23 +99,36 @@ Auf der Basis von *stories* und *domain* werden Fake-Sätze erstellt.
 
 Initiales Training des Dialogs
 
-8. [kalender-dialog-training.py](kalender-dialog-training.py)
-
-9. [policy-config.yml](policy-config.yml) für neuere Version von rasa_core ausgelagert
+8. [policy-config.yml](policy-config.yml) für neuere Version von rasa_core ausgelagert
 
 ```
-python3 kalender-dialog-training.py --config policy-config.yml
+python3 -m rasa_core.train \
+        -d kalender-domain.yml \
+        -s data/stories.md \
+        -o models/dialogue \
+        -c policy-config.yml
 ```
+```
+python3 -m rasa_core.train -d kalender-domain.yml -s data/stories.md -o models/dialogue -c policy-config.yml
+```
+Interaktives Training - generiert Stories und hängt sie an die initialen stories an.
 
-Interaktives Training - generiert Stories, die dann an die ursprünglichen Stories angehängt werden.
-
-9. [kalender-dialog-online-training.py](kalender-dialog-online-training.py)
+```
+python3 -m rasa_core.train interactive \
+        -d kalender-domain.yml \
+        -s data/stories.md \
+        -o models/dialogue \
+        -c policy-config.yml
+```
+```
+python3 -m rasa_core.train interactive -d kalender-domain.yml -s data/stories.md -o models/dialogue -c policy-config.yml
+```
 
 Finales Training ...
 
 10. [kalender-dialog-final-training.py](kalender-dialog-final-training.py)
 
-... und Test des Bots
+... und **Test des Bots**
 
 11. [kalender-bot.py](kalender-bot.py)
 
