@@ -16,7 +16,7 @@ Quellen des Beispiels auf [GitHub](https://github.com/JustinaPetr/Weatherbot_Tut
 ## Kurzanleitung
 * Intents trainieren und testen
 ```
-python3 kalender-training.py
+python3 kalender-intent-training.py
 ```
 * Dialoge / Stories initial trainieren
 ```
