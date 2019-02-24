@@ -54,21 +54,16 @@ Die Konfiguration
 * definiert einen Ordner für die Ausgabe des Modells
 ```
 
-3. Skript [kalender-training.py](kalender-training.py) erstellen und ausführen -> erzeugt das Modell im Ordner models (die Modelle werden nicht versioniert)
+3. Skript [kalender-intent-training.py](kalender-intent-training.py) erstellen und ausführen -> erzeugt das Modell im Ordner models (die Modelle werden nicht versioniert)
 
 ```
 Der Trainer
 * nimmt Daten und Konfiguration
 * generiert und speichert ein Modell
-```
-
-4. Skript [kalender-training-test.py](kalender-training-test.py) anlegen und ausführen -> hier wird die Intention der Aussage (intent) anhand eines statischen Beispiels getestet. Das Beispiel verwendet sowohl einen anderen Satzbau, als auch einen unbekannten Ferienbegriff und Intention und Objekt werden dennoch richtig erkannt.
-
-```
-Der Interpreter
 * lädt das Modell
 * parsed die Eingabe und liefert die Intention
 ```
+
 ### Richtig reagieren - Dialog Management
 
 Je nach Eingabe soll der Bot nach weiteren Details fragen oder antworten.
@@ -139,18 +134,6 @@ python3 -m rasa_core.train interactive \
         -c policy-config.yml
 ```
 
-Finales Training ...
-
-10. [kalender-dialog-final-training.py](kalender-dialog-final-training.py)
-
-... und **Test des Bots**
+**Test des Bots**
 
 11. [kalender-bot.py](kalender-bot.py)
-
-### Die Anwendungen
-
-... mit Bot als (Flask?) Server ...
-
-* vom Smartphone via Sprachein/ausgabe
-* in Facebook im Messanger
-* im Web als iframe
