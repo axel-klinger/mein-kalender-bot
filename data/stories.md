@@ -47,3 +47,12 @@
 * goodbye
     - utter_goodbye
 
+## Generated Story 159365323774664284
+* greeting
+    - utter_greet
+* get_holidays{"holidays": "Herbstferien"}
+    - slot{"holidays": "Herbstferien"}
+    - kalender_info
+    - slot{"holidays": "Herbstferien"}
+* goodbye
+    - utter_goodbye
