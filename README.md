@@ -42,40 +42,45 @@ python3 kalender-bot.py
 ### Verstehen was der Anwender will - Trainieren des Modells
 Anhand von Beispielsätzen lernt der Bot was der Anwender will und wovon er redet. Durch das Training kann der Bot auch bei abweichenden Formulierungen oder Rechtschreibfehlern die richtige Intention erkennen und auch neue Begriffe richtig einordnen ohne dass jede mögliche Abweichung explizit angegeben wird.   
 
-1. [data/data.json](data/data.json) anlegen und mit rasa-nlu-trainer befüllen
+1. [data/data.json](data/data.json) anlegen und mit **rasa-nlu-trainer** befüllen
 
 ```
+rasa-nlu-trainer
+```
+
 Die Trainingdaten
 * ordnen Beispielsätze den Intentionen zu
 * klassifizieren einzelne Begriffe in den Sätzen
-```
+
 
 2. [config.json](config.json) erstellen
 
-```
 Die Konfiguration
 * beschreibt die Trainings-Pipeline
 * definiert die Daten für die Eingabe
 * definiert einen Ordner für die Ausgabe des Modells
-```
+
 
 3. Skript [kalender-intent-training.py](kalender-intent-training.py) erstellen und ausführen -> erzeugt das Modell im Ordner models (die Modelle werden nicht versioniert)
 
 ```
+python3 kalender-intent-training.py
+```
+
 Der Trainer
 * nimmt Daten und Konfiguration
 * generiert und speichert ein Modell
 * lädt das Modell
 * parsed die Eingabe und liefert die Intention
-```
+
 
 ### Richtig reagieren - Dialog Management
 
 Je nach Eingabe soll der Bot nach weiteren Details fragen oder antworten.
 
-5. [kalender-domain.yml](kalender-domain.yml) erstellen
-
 #### Definition der Domäne
+
+4. [kalender-domain.yml](kalender-domain.yml) erstellen
 
 **slots - Platzhalter im Kontext für Objekte und ihre Datentypen**
 
@@ -101,7 +106,19 @@ Jedes Template wird durch eine Aktion aktiviert.
 
 Jede eigentliche Beantwortung eines Anliegens, durch Logik oder Abfrage aus dem Web, wird in einer *custom action* als separates Python Skript formuliert.
 
-7. [kalender-actions.py](kalender-actions.py) erstellen
+#### Custom actions definieren
+
+5. [kalender-actions.py](kalender-actions.py) erstellen
+
+Custom actions werden als service ausgeführt
+
+6. [endpoints.yml](endpoints.yml) erstellen
+
+Custom action service starten
+
+```
+python3 -m rasa_core_sdk.endpoint --actions kalender-actions
+```
 
 #### Geschichten erzählen - Definition der Stories
 
@@ -119,24 +136,20 @@ Auf der Basis von *stories* und *domain* werden Fake-Sätze erstellt.
 
 Initiales Training des Dialogs
 
-8. [policy-config.yml](policy-config.yml) für neuere Version von rasa_core ausgelagert
+8. [policy-config.yml](policy-config.yml) für neuere Version von rasa_core ausgelagert **<- kann wohl weg? -> TESTEN**
+
+9. [kalender-dialogue-training.py](kalender-dialogue-training.py) erstellen und ausführen
 
 ```
-python3 -m rasa_core.train \
-        -d kalender-domain.yml \
-        -s data/stories.md \
-        -o models/dialogue \
-        -c policy-config.yml
+python3 kalender-dialogue-training.py
 ```
 
 Interaktives Training - generiert Stories und hängt sie an die initialen stories an.
 
+10. [kalender-interactive-training.py](kalender-interactive-training.py) erstellen und ausführen
+
 ```
-python3 -m rasa_core.train interactive \
-        -d kalender-domain.yml \
-        -s data/stories.md \
-        -o models/dialogue \
-        -c policy-config.yml
+python3 kalender-interactive-training.py
 ```
 
 **Test des Bots**

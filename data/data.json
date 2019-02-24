@@ -24,6 +24,11 @@
         ]
       },
       {
+        "text": "Wann sind Ferien",
+        "intent": "get_holidays",
+        "entities": []
+      },
+      {
         "text": "Kannst du mir sagen wann die Sommerferien sind?",
         "intent": "get_holidays",
         "entities": [
