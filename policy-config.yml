@@ -1,0 +1,12 @@
+policies:
+  - name: KerasPolicy
+    epochs: 500
+    max_history: 5
+    augmentation_factor: 50
+    batch_size: 20
+    validation_split: 0.2        
+  - name: FallbackPolicy
+    fallback_action_name: 'action_default_fallback'
+  - name: MemoizationPolicy
+    max_history: 5
+  - name: FormPolicy

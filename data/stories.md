@@ -12,4 +12,4 @@
 
 ## Nach Ferien fragen 2
 * get_holidays
-  - kalender_info
+  - kalender-actions.KalenderInfo
