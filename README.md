@@ -3,6 +3,7 @@
 Das Ziel ist ein Chatbot, der mir Auskunft über Ferienzeiten, Müllabfuhrtermine und andere Ereignisse liefert.
 
 Auf Basis dieses [Youtube Videos](https://www.youtube.com/watch?v=xu6D_vLP5vY&t=3848s)
+Quellen des Beispiels auf [GitHub](https://github.com/JustinaPetr/Weatherbot_Tutorial)
 
 ## Voraussetzung
 
@@ -12,7 +13,32 @@ Auf Basis dieses [Youtube Videos](https://www.youtube.com/watch?v=xu6D_vLP5vY&t=
 * pip3 install tensorflow (1.12.0) // 1.13.0rcX nicht kompatibel mit rasa_core
 * pip3 install rasa_core
 
-## Verstehen was der Anwender will - Trainieren des Modells
+## Kurzanleitung
+* Intents trainieren
+```
+python3 kalender-training.py
+```
+* Intent-Erkennung testen
+```
+python3 kalender-training-test.py
+```
+* Dialoge / Stories initial trainieren
+```
+python3 -m rasa_core.train -d kalender-domain.yml -s data/stories.md -o models/dialogue -c policy-config.yml
+```
+* Dialoge / Stories interaktiv trainieren
+```
+python3 -m rasa_core.train interactive -d kalender-domain.yml -s data/stories.md -o models/dialogue -c policy-config.yml
+```
+* ... ggf. final trainieren ??? ...
+
+* Bot testen
+```
+python3 kalender-bot.py
+```
+
+## Die einzelnen Schritte im Detail
+### Verstehen was der Anwender will - Trainieren des Modells
 Anhand von Beispielsätzen lernt der Bot was der Anwender will und wovon er redet. Durch das Training kann der Bot auch bei abweichenden Formulierungen oder Rechtschreibfehlern die richtige Intention erkennen und auch neue Begriffe richtig einordnen ohne dass jede mögliche Abweichung explizit angegeben wird.   
 
 1. [data/data.json](data/data.json) anlegen und mit rasa-nlu-trainer befüllen
@@ -47,13 +73,13 @@ Der Interpreter
 * lädt das Modell
 * parsed die Eingabe und liefert die Intention
 ```
-## Richtig reagieren - Dialog Management
+### Richtig reagieren - Dialog Management
 
 Je nach Eingabe soll der Bot nach weiteren Details fragen oder antworten.
 
 5. [kalender-domain.yml](kalender-domain.yml) erstellen
 
-### Definition der Domäne
+#### Definition der Domäne
 
 **slots - Platzhalter im Kontext für Objekte und ihre Datentypen**
 
@@ -81,7 +107,7 @@ Jede eigentliche Beantwortung eines Anliegens, durch Logik oder Abfrage aus dem 
 
 7. [kalender-actions.py](kalender-actions.py) erstellen
 
-### Geschichten erzählen - Definition der Stories
+#### Geschichten erzählen - Definition der Stories
 
 In den Stories werden die Elemente des Dialogs beispielhaft miteinander verbunden. Durch interaktives Training lernt der Bot richtig zu reagieren.
 
@@ -91,11 +117,9 @@ Zunächst werden nur einfache Reaktionen formuliert, ohne Bezug auf Objekte im K
 
 7. [data/stories.md](data/stories.md) erstellen
 
-### Ein Basis-Dialogmodell trainieren
+#### Ein Basis-Dialogmodell trainieren
 
 Auf der Basis von *stories* und *domain* werden Fake-Sätze erstellt.
-
-### TODO
 
 Initiales Training des Dialogs
 
@@ -108,9 +132,7 @@ python3 -m rasa_core.train \
         -o models/dialogue \
         -c policy-config.yml
 ```
-```
-python3 -m rasa_core.train -d kalender-domain.yml -s data/stories.md -o models/dialogue -c policy-config.yml
-```
+
 Interaktives Training - generiert Stories und hängt sie an die initialen stories an.
 
 ```
@@ -119,9 +141,6 @@ python3 -m rasa_core.train interactive \
         -s data/stories.md \
         -o models/dialogue \
         -c policy-config.yml
-```
-```
-python3 -m rasa_core.train interactive -d kalender-domain.yml -s data/stories.md -o models/dialogue -c policy-config.yml
 ```
 
 Finales Training ...
