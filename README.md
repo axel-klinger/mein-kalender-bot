@@ -10,24 +10,29 @@ Quellen des Beispiels auf [GitHub](https://github.com/JustinaPetr/Weatherbot_Tut
 * Python 3 (3.6.5_1) // 3.7.2 macht Probleme
 * pip3 install rasa-nlu
 * pip3 install rasa-nlu-trainer
-* pip3 install tensorflow (1.12.0) // 1.13.0rcX nicht kompatibel mit rasa_core
+// * pip3 install tensorflow (1.12.0) // 1.13.0rcX nicht kompatibel mit rasa_core
 * pip3 install rasa_core
+* pip3 install rasa_core_sdk
+* pip3 install spacy
+* python3 -m spacy download de
 
 ## Kurzanleitung
 * Intents trainieren und testen
 ```
 python3 kalender-intent-training.py
 ```
+* kalender-actions.py als service starten
+```
+python3 -m rasa_core_sdk.endpoint --actions kalender-actions
+```
 * Dialoge / Stories initial trainieren
 ```
-python3 -m rasa_core.train -d kalender-domain.yml -s data/stories.md -o models/dialogue -c policy-config.yml
+python3 kalender-dialogue-training.py
 ```
 * Dialoge / Stories interaktiv trainieren
 ```
-python3 -m rasa_core.train interactive -d kalender-domain.yml -s data/stories.md -o models/dialogue -c policy-config.yml
+python3 kalender-interactive-training.py
 ```
-* ... ggf. final trainieren ??? ...
-
 * Bot testen
 ```
 python3 kalender-bot.py
