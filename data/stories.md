@@ -35,3 +35,15 @@
 * goodbye
     - utter_goodbye
     - action_restart
+## Generated Story -8641355004258649617
+* greeting
+    - utter_greet
+* get_holidays
+    - utter_ask_for_holidays
+* get_holidays{"holidays": "Osterferien"}
+    - slot{"holidays": "Osterferien"}
+    - kalender_info
+    - slot{"holidays": "Osterferien"}
+* goodbye
+    - utter_goodbye
+
