@@ -12,4 +12,11 @@
 
 ## Nach Ferien fragen 2
 * get_holidays
-  - kalender-actions.KalenderInfo
+  - kalender_info
+
+## Generated Story 5861345622935495920
+* greeting
+    - utter_greet
+* get_holidays{"holidays": "Sommerferien"}
+    - slot{"holidays": "Sommerferien"}
+    - kalender_info

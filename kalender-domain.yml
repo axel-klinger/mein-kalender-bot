@@ -26,4 +26,4 @@ actions:
   - utter_greet
   - utter_goodbye
   - utter_ask_for_holidays
-  - kalender-actions.KalenderInfo
+  - kalender_info
