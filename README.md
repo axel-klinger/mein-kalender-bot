@@ -5,6 +5,8 @@ Das Ziel ist ein Chatbot, der mir Auskunft über Ferienzeiten, Müllabfuhrtermin
 Auf Basis dieses [Youtube Videos](https://www.youtube.com/watch?v=xu6D_vLP5vY&t=3848s)
 Quellen des Beispiels auf [GitHub](https://github.com/JustinaPetr/Weatherbot_Tutorial)
 
+Siehe auch [rasa-demo](https://github.com/RasaHQ/rasa-demo/)
+
 ## Voraussetzung
 
 * Python 3 (3.6.5_1) // 3.7.2 macht Probleme
@@ -139,7 +141,7 @@ Auf der Basis von *stories* und *domain* werden Fake-Sätze erstellt.
 
 Initiales Training des Dialogs
 
-8. [policy-config.yml](policy-config.yml) für neuere Version von rasa_core ausgelagert **<- kann wohl weg? -> TESTEN**
+8. [policy-config.yml](policy-config.yml) für neuere Version von rasa_core ausgelagert
 
 9. [kalender-dialogue-training.py](kalender-dialogue-training.py) erstellen und ausführen
 
