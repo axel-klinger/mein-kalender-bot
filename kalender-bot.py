@@ -15,16 +15,6 @@ from rasa_core import config
 
 logger = logging.getLogger(__name__)
 
-def train_dialogue(domain_file = 'kalender-domain.yml',
-					model_path = './models/dialogue',
-					training_data_file = './data/stories.md'):
-
-	agent = Agent(domain_file, policies = [MemoizationPolicy(), KerasPolicy(max_history=3, epochs=200, batch_size=50)])
-	data = agent.load_data(training_data_file)
-	agent.train(data)
-	agent.persist(model_path)
-	return agent
-
 def run_kalender_bot(serve_forever=True):
 	interpreter = RasaNLUInterpreter('./models/nlu/default/kalenderbot')
 	action_endpoint = EndpointConfig(url="http://localhost:5055/webhook")
@@ -34,5 +24,4 @@ def run_kalender_bot(serve_forever=True):
 	return agent
 
 if __name__ == '__main__':
-	train_dialogue()
 	run_kalender_bot()

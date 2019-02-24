@@ -25,14 +25,5 @@ def train_dialogue(domain_file = 'kalender-domain.yml',
 	agent.persist(model_path)
 	return agent
 
-def run_kalender_bot(serve_forever=True):
-	interpreter = RasaNLUInterpreter('./models/nlu/default/kalenderbot')
-	action_endpoint = EndpointConfig(url="http://localhost:5055/webhook")
-	agent = Agent.load('./models/dialogue', interpreter=interpreter, action_endpoint=action_endpoint)
-	rasa_core.run.serve_application(agent ,channel='cmdline')
-
-	return agent
-
 if __name__ == '__main__':
 	train_dialogue()
-	run_kalender_bot()

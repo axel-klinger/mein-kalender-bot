@@ -35,6 +35,9 @@ python3 kalender-interactive-training.py
 ```
 * Bot testen
 ```
+python3 kalender-dialogue-training.py
+```
+```
 python3 kalender-bot.py
 ```
 
