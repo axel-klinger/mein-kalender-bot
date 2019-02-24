@@ -14,13 +14,9 @@ Quellen des Beispiels auf [GitHub](https://github.com/JustinaPetr/Weatherbot_Tut
 * pip3 install rasa_core
 
 ## Kurzanleitung
-* Intents trainieren
+* Intents trainieren und testen
 ```
 python3 kalender-training.py
-```
-* Intent-Erkennung testen
-```
-python3 kalender-training-test.py
 ```
 * Dialoge / Stories initial trainieren
 ```
