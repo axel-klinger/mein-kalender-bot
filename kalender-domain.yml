@@ -1,29 +1,27 @@
+%YAML 1.1
+---
+actions:
+- utter_greet
+- utter_goodbye
+- utter_ask_for_holidays
+- kalender_info
+entities:
+- holidays
+intents:
+- greeting
+- get_holidays
+- goodbye
 slots:
   holidays:
     type: text
-
-intents:
-  - greeting
-  - goodbye
-  - get_holidays
-
-entities:
-  - holidays
-
 templates:
-  utter_greet:
-    - "Hi!"
-    - "Hallo."
-    - "Hallo du!"
-  utter_goodby:
-    - "Und tschüss"
-    - "Bis bald"
   utter_ask_for_holidays:
-    - "Welche Ferien"
-    - "Von welchen Ferien sprichts du?"
-
-actions:
-  - utter_greet
-  - utter_goodbye
-  - utter_ask_for_holidays
-  - kalender_info
+  - text: Welche Ferien
+  - text: Von welchen Ferien sprichts du?
+  utter_goodby:
+  - text: Und tschüss
+  - text: Bis bald
+  utter_greet:
+  - text: Hi!
+  - text: Hallo.
+  - text: Hallo du!
