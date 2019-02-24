@@ -14,5 +14,5 @@ def run_kalender_intent():
 	print(interpreter.parse(u"Kannst du mir sagen wann die Weihnachtsferien sind."))
 
 if __name__ == '__main__':
-	train_kalender_intent('./data/data.json', 'config.json', './models/nlu')
+	train_kalender_intent('./data/data.md', 'config.json', './models/nlu')
 	run_kalender_intent()

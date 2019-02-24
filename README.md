@@ -47,11 +47,7 @@ python3 kalender-bot.py
 ### Verstehen was der Anwender will - Trainieren des Modells
 Anhand von Beispielsätzen lernt der Bot was der Anwender will und wovon er redet. Durch das Training kann der Bot auch bei abweichenden Formulierungen oder Rechtschreibfehlern die richtige Intention erkennen und auch neue Begriffe richtig einordnen ohne dass jede mögliche Abweichung explizit angegeben wird.   
 
-1. [data/data.json](data/data.json) anlegen und mit **rasa-nlu-trainer** befüllen
-
-```
-rasa-nlu-trainer
-```
+1. [data/data.md](data/data.md) anlegen
 
 Die Trainingdaten
 * ordnen Beispielsätze den Intentionen zu
@@ -141,9 +137,7 @@ Auf der Basis von *stories* und *domain* werden Fake-Sätze erstellt.
 
 Initiales Training des Dialogs
 
-8. [policy-config.yml](policy-config.yml) für neuere Version von rasa_core ausgelagert
-
-9. [kalender-dialogue-training.py](kalender-dialogue-training.py) erstellen und ausführen
+8. [kalender-dialogue-training.py](kalender-dialogue-training.py) erstellen und ausführen
 
 ```
 python3 kalender-dialogue-training.py
@@ -151,7 +145,7 @@ python3 kalender-dialogue-training.py
 
 Interaktives Training - generiert Stories und hängt sie an die initialen stories an.
 
-10. [kalender-interactive-training.py](kalender-interactive-training.py) erstellen und ausführen
+9. [kalender-interactive-training.py](kalender-interactive-training.py) erstellen und ausführen
 
 ```
 python3 kalender-interactive-training.py
@@ -159,4 +153,12 @@ python3 kalender-interactive-training.py
 
 **Test des Bots**
 
-11. [kalender-bot.py](kalender-bot.py)
+10. [kalender-bot.py](kalender-bot.py)
+
+### Erweiterung des Bots um andere Termine
+
+**intent:get_garbage_collection**
+- Wann ist [Altpapier](garbage)
+- Wann wird der [Biomüll](gabage) abgeholt
+- Wann kommt das nächste Mal die Müllabfuhr
+- Wann wird die [Grüne Tonne](garbage) abgeholt
