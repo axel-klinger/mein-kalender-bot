@@ -6,10 +6,11 @@ Auf Basis dieses [Youtube Videos](https://www.youtube.com/watch?v=xu6D_vLP5vY&t=
 
 ## Voraussetzung
 
-* Python 3
+* Python 3 (3.6.5_1) // 3.7.2 macht Probleme
 * pip3 install rasa-nlu
 * pip3 install rasa-nlu-trainer
-* pip3 install tensorflow
+* pip3 install tensorflow (1.12.0) // 1.13.0rcX nicht kompatibel mit rasa_core
+* pip3 install rasa_core
 
 ## Verstehen was der Anwender will - Trainieren des Modells
 Anhand von Beispielsätzen lernt der Bot was der Anwender will und wovon er redet. Durch das Training kann der Bot auch bei abweichenden Formulierungen oder Rechtschreibfehlern die richtige Intention erkennen und auch neue Begriffe richtig einordnen ohne dass jede mögliche Abweichung explizit angegeben wird.   
@@ -99,6 +100,12 @@ Auf der Basis von *stories* und *domain* werden Fake-Sätze erstellt.
 Initiales Training des Dialogs
 
 8. [kalender-dialog-training.py](kalender-dialog-training.py)
+
+9. [policy-config.yml](policy-config.yml) für neuere Version von rasa_core ausgelagert
+
+```
+python3 kalender-dialog-training.py --config policy-config.yml
+```
 
 Interaktives Training - generiert Stories, die dann an die ursprünglichen Stories angehängt werden.
 
