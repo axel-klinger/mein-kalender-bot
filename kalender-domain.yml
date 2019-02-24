@@ -1,15 +1,15 @@
 %YAML 1.1
 ---
 actions:
-- utter_greet
-- utter_goodbye
-- utter_ask_for_holidays
 - kalender_info
+- utter_greet
+- utter_ask_for_holidays
+- utter_goodbye
 entities:
 - holidays
 intents:
-- greeting
 - get_holidays
+- greeting
 - goodbye
 slots:
   holidays:
